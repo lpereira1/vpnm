@@ -36,7 +36,7 @@ class FilterModule(object):
         return_dict = {}
         for vrf in vrf_list:
             # Parse the VRF name from the definition line
-            name_regex = re.compile(r'vrf\s+definition\s+(?P<name>\S+)')
+            name_regex = re.compile(r'(vrf\s+(definition|context)|ip\s+vrf)\s+(?P<name>\S+)')
             name_match = name_regex.search(vrf)
             sub_dict = {}
             vrf_dict = {name_match.group('name'): sub_dict}
